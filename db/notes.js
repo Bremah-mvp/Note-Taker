@@ -25,7 +25,31 @@ class notes {
     getNotes() {
         return this.read().then((notes) => {
             // naming array
-            
+            let notesArr;
+
+            // conacting parsed notes into array
+            try {
+                notesArr = [].concat(JSON.parse(notes))
+            }
+            catch (err) {
+                notesArr = [];
+                // otherwise return an empty array
+            }
+            // return array
+            return notesArr
+
         })
+    };
+
+    // adding new note
+    addNote(note) {
+        // with the title and text
+        const { title, text } = note;
+
+        // title and text must have content to save
+        if (!title || !text) {
+            throw new Error("pliz write something in the note! ")
+        };
+
+        // new
     }
-}
