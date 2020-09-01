@@ -51,5 +51,9 @@ class notes {
             throw new Error("pliz write something in the note! ")
         };
 
-        // new
+        // new note objectbwith title, text, and id
+        const newNote = {tittle, text, id: uuidv4()};
+
+        // this expands our notes array, adds the new note to the end, creates a NEW ARRAY called "updated Notes" with the new note and writes the NEW ARRAY
+        return this.getNotes().then((notes) => [...notes, newNote]).then((updatedNotes) => this.write(updatedNotes)).then(() => newNote);
     }
