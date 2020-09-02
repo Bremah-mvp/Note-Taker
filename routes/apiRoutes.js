@@ -13,5 +13,18 @@ router.get("/notes", (req, res) => {
 // post request for new notes
 router.post("/notes", (req, res) => {
     Notes.addNotes(req.body)
-    .then((note) =>)
+    .then((note) => {
+        res.json(note);
+        console.log(note);
+    })
+    .catch((err) => res.status(500).json(err))
 })
+
+// to "delete" a note
+router.delete("/notes/:id", (req, res) => {
+    Notes.deleteNote(req.params.id)
+    .then(() => res.json({ ok: true}))
+    .catch((err) => res.status(500).json(err))
+})
+
+module.exports = router;
