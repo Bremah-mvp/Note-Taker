@@ -1,47 +1,49 @@
-// dependecies
 const fs = require('fs');
+const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
-let savedNotes = [];
 
-fs.readFile('./db/db.json', (err, data) => {
-  if (err) throw err;
-  savedNotes = JSON.parse(data);
-});
+module.exports = (app) => {
 
-rewriteDB = () => {
-  fs.writeFile('./db/db.json', JSON.stringify(savedNotes), (err) => {
-    if (err) throw err;
-  });
-};
+    // read in and display notes
+    app.get("/api/notes", (req, res) => {
+        fs.readFile('./db/db.json', (err, data) => {
+            if (err) throw err;
+            res.json(JSON.parse(data));
+        });
+    });
 
-module.exports = function (app) {
+    // create new note
+    app.post("/api/notes", (req, res) => {
+        let newNote = req.body;
+        newNote.id = uuidv4();
+        fs.readFile('./db/db.json', (err, data) => {
+            if (err) throw err;
+            let notes = JSON.parse(data);
+            notes.push(newNote);
+            fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+                if (err) throw err;
+                res.json(notes);
+            });
+        });
+    });
 
-  app.get('/api/notes', (req, res) => {
-    res.send(savedNotes);
-  });
-
-  app.post("/api/notes", (req, res) => {
-    const thisNote = req.body
-    thisNote.id = (uuidv4());
-    savedNotes.push(thisNote);
-    rewriteDB();
-    res.send(savedNotes);
-  });
-
-  // delete saved notes
-  app.delete(`/api/notes/:id`, (req, res) => {
-    idToDelete = req.params.id;
-    for (let i = 0; i < savedNotes.length; i++) {
-      if (savedNotes[i].id === idToDelete) {
-        savedNotes.splice(i, 1);
-        rewriteDB();
-        res.send(savedNotes);
-        return;
-      }
-    }
-  });
-};
+    // delete note
+    app.delete("/api/notes/:id", (req, res) => {
+        const id = req.params.id;
+        fs.readFile('./db/db.json', (err, data) => {
+            if (err) throw err;
+            const notes = JSON.parse(data);
+            let newNotesArr = notes.filter((note) => {
+                return id !== note.id;
+            })
+            fs.writeFile('./db/db.json', JSON.stringify(newNotesArr), (err) => {
+                if (err) throw err;
+                res.json(newNotesArr);
+            });
+        });
+    });
+}
 
 
 
