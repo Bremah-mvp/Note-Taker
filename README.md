@@ -37,11 +37,17 @@ used node to test if the app functions correctly before deloying it to heroku.
  EXPRESS  to create the following routes:
 
 HTML Routes
+
 GET /notes - Returns the notes.html file.
+
 GET * - Returns the index.html file
+
 API Routes
+
 GET /api/notes - Reads the db.json file and returns all saved notes as JSON.
+
 POST /api/notes - Receives a new note to save on the request body, adds it to the db.json file, and then returns the new note to the client.
+
 DELETE /api/notes/:id - Receives a query parameter containing the id of a note to delete, removes the note with the given id property, and then rewrites the notes to the db.json file.
 
 
