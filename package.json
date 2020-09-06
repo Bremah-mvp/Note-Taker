@@ -1,16 +1,27 @@
 {
-  "name": "note-taker",
+  "name": "notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "A note taking app powered by express.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Bremah mvp",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
+    "ms": "^2.1.2",
+    "util": "^0.12.3",
     "uuid": "^8.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bremah-mvp/Note-Taker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bremah-mvp/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/Bremah-mvp/Note-Taker#readme"
 }
