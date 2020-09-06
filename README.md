@@ -13,6 +13,7 @@
 -Deployed on Heroku at:  Note Taker
 
 Description
+
 The note taker application allows a user to write, save, delete, and view previously saved notes. It uses an Express backend to save and retrive note data from a JSON file. 
 
  
