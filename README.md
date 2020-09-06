@@ -54,7 +54,7 @@ DELETE /api/notes/:id - Receives a query parameter containing the id of a note t
 Screenshots
 ![picture](https://github.com/Bremah-mvp/Note-Taker/blob/master/public/assets/Annotation%202020-09-05%20224309.png)
 
-Deployed Link : https://drive.google.com/file/d/1obpAHGOgynDpGoshALDKyYvBaYdeZY7T/view
+Deployed Link at heroku : https://drive.google.com/file/d/1obpAHGOgynDpGoshALDKyYvBaYdeZY7T/view
 
 Installation
 To install dependencies, run the following:
@@ -70,4 +70,4 @@ License
 This repository is licensed under the MIT license.
 
 Questions
-Questions about this repository? Please contact me at mvpbremah@gmail.com. View more of my work in GitHub Bremah-mvp
+Questions about this repository? Please contact me at mvpbremah@gmail.com. View more of my work in GitHub Bremah-mvp 
