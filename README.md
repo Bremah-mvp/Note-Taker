@@ -46,7 +46,7 @@ DELETE /api/notes/:id - Receives a query parameter containing the id of a note t
 
 
 Screenshots
-![picture]()
+![picture](https://github.com/Bremah-mvp/Note-Taker/blob/master/public/assets/Annotation%202020-09-05%20224309.png)
 
 Installation
 To install dependencies, run the following:
